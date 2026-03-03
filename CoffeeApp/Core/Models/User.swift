@@ -12,5 +12,3 @@ struct User: Identifiable {
     let name: String
     let avatarImage: String
 }
-
-

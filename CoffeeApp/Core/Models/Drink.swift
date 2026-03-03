@@ -9,6 +9,7 @@ import Foundation
 struct Drink: Identifiable, Hashable {
     let id: UUID
     let name: String
+    let type: String
     let category: DrinkCategory
     let price: Double
     let originalPrice: Double?
