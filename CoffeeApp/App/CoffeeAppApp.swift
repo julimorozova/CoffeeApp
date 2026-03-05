@@ -17,7 +17,9 @@ struct CoffeeAppApp: App {
                 HomeView()
                     .navigationDestination(for: AppRouter.Destination.self) { destination in
                         switch destination {
-                        case .detail(let drink): DetailView(drink: drink)
+                        case .detail(let drink):
+                            let vm = DetailViewModel(drink: drink)
+                            DetailView(viewModel: vm)
                         }
                     }
             }
