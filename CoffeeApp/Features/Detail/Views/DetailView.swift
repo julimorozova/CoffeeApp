@@ -81,7 +81,79 @@ struct DetailView: View {
             }
 
 
+            HStack {
+                HStack(spacing: 14) {
+                    Image(systemName: "tag")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .rotationEffect(.degrees(-90))
+
+                    Text(viewModel.formattedPrice)
+                        .poppins(.medium, 24)
+
+                }
+                Spacer()
+
+                HStack(spacing: 20) {
+                    Button {
+                        viewModel.decrement()
+                    } label: {
+                        Image(systemName: "minus")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 13, height: 3)
+                            .foregroundColor(.black)
+                    }
+
+                    Text(String(viewModel.count))
+                        .poppins(.medium, 18)
+                        .frame(minWidth: 20)
+
+                    Button {
+                        viewModel.increment()
+                    } label: {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 13, height: 15)
+                            .foregroundColor(.black)
+                    }
+
+                }
+                .padding(.horizontal, 15)
+                .padding(.vertical, 8)
+                .background(Capsule().stroke(Color.gray.opacity(0.8), lineWidth: 1))
+            }
+            .padding(.horizontal, 28)
+
+
+            Text("*)Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore")
+                .poppins(.regular, 12)
+                .padding(.horizontal, 26)
+
+
             Spacer()
+
+            Button {
+                //
+            } label: {
+                HStack(spacing: 11) {
+                    Text("PLACE ORDER")
+                        .poppins(.semiBold, 16)
+                        .foregroundColor(.white)
+                    Text(viewModel.formattedPrice)
+                        .poppins(.semiBold, 16)
+                        .foregroundColor(.white.opacity(0.37))
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 18)
+                .background(.appDarkPurpur)
+                .clipShape(RoundedRectangle(cornerRadius: 22))
+            }
+            .padding(.horizontal, 30)
+            .padding(.bottom, 1)
+
 
         }
         .edgesIgnoringSafeArea(.top)
