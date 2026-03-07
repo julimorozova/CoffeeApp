@@ -14,7 +14,7 @@ struct CoffeeAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
-                HomeView()
+                TabBar()
                     .navigationDestination(for: AppRouter.Destination.self) { destination in
                         switch destination {
                         case .detail(let drink):
